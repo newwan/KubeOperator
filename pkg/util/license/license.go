@@ -40,5 +40,6 @@ func Parse(content string) (*dto.License, error) {
 	if err != nil {
 		return nil, err
 	}
+	_ = cmd.Process.Kill()
 	return &resp, nil
 }
