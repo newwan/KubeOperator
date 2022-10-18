@@ -28,7 +28,7 @@ func Parse(content string) (*dto.License, error) {
 		return nil, err
 	}
 	defer stdout.Close()
-	if err := cmd.Start(); err != nil {
+	if err := cmd.Run(); err != nil {
 		return nil, err
 	}
 	opBytes, err := ioutil.ReadAll(stdout)
@@ -40,6 +40,5 @@ func Parse(content string) (*dto.License, error) {
 	if err != nil {
 		return nil, err
 	}
-	_ = cmd.Process.Kill()
 	return &resp, nil
 }
